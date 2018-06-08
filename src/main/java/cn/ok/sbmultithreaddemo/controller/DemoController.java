@@ -25,12 +25,12 @@ public class DemoController {
 
     @GetMapping("/doSth")
     public String doSth() {
-
+        log.info("DemoController doSth start.");
         // controller => demoService(异步) => threadService(异步)
         demoServer.doSth();
 
         // controller => demoService(异步) => demoService(同步)
-        demoServer.doSth1();
+//        demoServer.doSth1();
 
         log.debug("doSth controller done.");
         return "doSth done.";
