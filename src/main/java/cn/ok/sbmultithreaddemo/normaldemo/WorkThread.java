@@ -6,12 +6,12 @@ import lombok.extern.slf4j.Slf4j;
  * File Header
  * PROJECT_NAME: sb-multithread-demo
  * PACKAGE_NAME: cn.ok.sbmultithreaddemo.normaldemo
- * Created by wangqiang on 2018/6/8 16:49.
+ * @author kyou on 2018/6/8 16:49.
  */
 @Slf4j
 public class WorkThread implements Runnable {
 
-    private int cnt = 0;
+    private int cnt;
 
     WorkThread(int cnt) {
         this.cnt = cnt;
