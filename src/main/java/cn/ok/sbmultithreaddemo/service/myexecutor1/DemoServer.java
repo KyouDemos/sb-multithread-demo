@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.CompletableFuture;
+
 /**
  * @author kyou at 2018/6/7 06:29
  */
@@ -24,7 +26,7 @@ public class DemoServer {
     }
 
     @Async
-    public void doSth() {
+    public CompletableFuture<String> doSth() {
         log.debug("DemoServer doSth start.");
 
         // 调用不同实例的异步方法，将会异步执行。
@@ -38,6 +40,8 @@ public class DemoServer {
         }
 
         log.debug("DemoServer doSth end.");
+
+        return CompletableFuture.completedFuture("6");
     }
 
     @Async
@@ -52,7 +56,7 @@ public class DemoServer {
     }
 
     @Async
-    public void doSth2(){
+    public void doSth2() {
 
         try {
             Thread.sleep(2 * 1000);
